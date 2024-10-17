@@ -6,18 +6,23 @@
 /*   By: kkoray <kkoray@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:20:10 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/16 16:25:38 by kkoray           ###   ########.fr       */
+/*   Updated: 2024/10/17 22:34:33 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
 void	ft_putendl_fd(char *str, int fd)
 {
 	int	i;
 
+	if (!str)
+		return ;
 	i = 0;
-	while (str[i++])
+	while (str[i])
+	{
 		write(fd, &str[i], 1);
+		i++;
+	}
 	write(fd, "\n", 1);
 }

@@ -6,7 +6,7 @@
 /*   By: kkoray <kkoray@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 16:20:55 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/16 16:21:16 by kkoray           ###   ########.fr       */
+/*   Updated: 2024/10/17 17:22:14 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	j = 0;
 	if (needle[0] == 0)
 		return ((char *)haystack);
-	while (haystack[i] && i < len)
+	while (i < len && haystack[i])
 	{
-		while (haystack[i + j] == needle[j] && haystack[i + j] && i + j < len)
+		while (i + j < len && haystack[i + j] && haystack[i + j] == needle[j])
 		{
 			j++;
 			if (needle[j] == 0)

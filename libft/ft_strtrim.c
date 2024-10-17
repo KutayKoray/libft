@@ -6,7 +6,7 @@
 /*   By: kkoray <kkoray@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 17:37:16 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/16 19:03:25 by kkoray           ###   ########.fr       */
+/*   Updated: 2024/10/17 22:33:44 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_strtrim(const char *s1, const char *set)
 	int	i;
 	int	j;
 
+	if (!s1)
+		return (NULL);
 	i = 0;
 	j = ft_strlen(s1) - 1;
 	if (ft_strlen(s1) == 0)
@@ -51,9 +53,9 @@ static char	*new_str(const char *str, size_t start_index, size_t len)
 	size_t	i;
 
 	i = 0;
-	if (len <= 0 || start_index >= ft_strlen(str))
+	if (start_index >= ft_strlen(str) || len <= 0)
 		return (ft_strdup(""));
-	new_str = (char *)ft_calloc(len + 1, sizeof(char));
+	new_str = (char *)ft_calloc(len, sizeof(char));
 	if (!new_str)
 		return (NULL);
 	while ((i + 1) != len)

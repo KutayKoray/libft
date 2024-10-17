@@ -6,7 +6,7 @@
 /*   By: kkoray <kkoray@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 17:25:49 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/16 17:28:03 by kkoray           ###   ########.fr       */
+/*   Updated: 2024/10/17 22:33:33 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	unsigned int i;
-	char *tmp;
-	char cc;
+	unsigned int	i;
+	char			*tmp;
+	char			cc;
 
 	cc = (char)c;
 	tmp = NULL;
@@ -25,11 +25,9 @@ char	*ft_strrchr(const char *s, int c)
 	{
 		if (s[i] == cc)
 			tmp = (char *)(s + i);
-
 		i++;
 	}
 	if (s[i] == c)
 		tmp = (char *)(s + i);
-
 	return (tmp);
 }
