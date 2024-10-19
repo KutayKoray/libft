@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkoray <kkoray@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kkoray <kkoray@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 17:25:49 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/17 22:33:33 by kkoray           ###   ########.fr       */
+/*   Updated: 2024/10/19 21:57:12 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_strrchr(const char *s, int c)
 			tmp = (char *)(s + i);
 		i++;
 	}
-	if (s[i] == c)
+	if (s[i] == cc)
 		tmp = (char *)(s + i);
 	return (tmp);
 }

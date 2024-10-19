@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kkoray <kkoray@student.42.fr>              +#+  +:+       +#+        */
+/*   By: kkoray <kkoray@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 19:03:03 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/17 20:55:46 by kkoray           ###   ########.fr       */
+/*   Updated: 2024/10/19 20:53:02 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,13 +80,22 @@ static int	count_words(const char *str, char sep)
 {
 	int	i;
 	int	count;
+	int	in_word;
 
 	i = 0;
 	count = 0;
+	in_word = 0;
 	while (str[i])
 	{
-		if (str[i] != sep && str[i + 1] == sep && str[i + 1] != '\0')
+		if (str[i] != sep && !in_word)
+		{
+			in_word = 1;
 			count++;
+		}
+		else if (str[i] == sep)
+		{
+			in_word = 0;
+		}
 		i++;
 	}
 	return (count);
