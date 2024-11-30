@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoray <kkoray@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:19:58 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/19 12:10:34 by kkoray           ###   ########.fr       */
+/*   Created: 2024/10/10 18:20:35 by kkoray            #+#    #+#             */
+/*   Updated: 2024/10/23 16:59:31 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <stddef.h>
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned char	*tmp;
-	size_t			i;
+	unsigned char	*tmp_dst;
+	unsigned char	*tmp_src;
 
-	tmp = malloc(size * count);
-	if (!tmp)
-		return (NULL);
-	i = 0;
-	while (i < size * count)
+	if (!dst && !src)
 	{
-		*(tmp + i) = 0;
-		i++;
+		return (dst);
 	}
-	return (tmp);
+	tmp_dst = (unsigned char *)dst;
+	tmp_src = (unsigned char *)src;
+	while (n > 0)
+	{
+		*(tmp_dst++) = *(tmp_src++);
+		n--;
+	}
+	return (dst);
 }

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoray <kkoray@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:19:58 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/19 12:10:34 by kkoray           ###   ########.fr       */
+/*   Created: 2024/10/19 13:26:14 by kkoray            #+#    #+#             */
+/*   Updated: 2024/10/19 13:30:55 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+t_list	*ft_lstlast(t_list *lst)
 {
-	unsigned char	*tmp;
-	size_t			i;
-
-	tmp = malloc(size * count);
-	if (!tmp)
+	if (!lst)
 		return (NULL);
-	i = 0;
-	while (i < size * count)
-	{
-		*(tmp + i) = 0;
-		i++;
-	}
-	return (tmp);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

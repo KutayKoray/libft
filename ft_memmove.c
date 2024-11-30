@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoray <kkoray@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:20:55 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/23 17:01:07 by kkoray           ###   ########.fr       */
+/*   Created: 2024/10/10 18:56:29 by kkoray            #+#    #+#             */
+/*   Updated: 2024/10/23 16:59:25 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t	i;
-	size_t	j;
+	unsigned char	*tmp_dst;
+	unsigned char	*tmp_src;
 
-	i = 0;
-	j = 0;
-	if (needle[0] == 0)
-		return ((char *)haystack);
-	while (i < len && haystack[i])
+	if (!dst && !src)
+		return (NULL);
+	tmp_dst = (unsigned char *)dst;
+	tmp_src = (unsigned char *)src;
+	if (tmp_dst > tmp_src && tmp_dst < tmp_src + len)
 	{
-		while (i + j < len && haystack[i + j] && haystack[i + j] == needle[j])
+		while (len > 0)
 		{
-			j++;
-			if (needle[j] == 0)
-				return ((char *)haystack + i);
+			*(tmp_dst + len - 1) = *(tmp_src + len - 1);
+			len--;
 		}
-		i++;
-		j = 0;
 	}
-	return (0);
+	else
+	{
+		while (len > 0)
+		{
+			*(tmp_dst++) = *(tmp_src++);
+			len--;
+		}
+	}
+	return (dst);
 }

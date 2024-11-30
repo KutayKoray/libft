@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoray <kkoray@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:19:58 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/19 12:10:34 by kkoray           ###   ########.fr       */
+/*   Created: 2024/10/10 15:49:14 by kkoray            #+#    #+#             */
+/*   Updated: 2024/10/19 12:10:40 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_calloc(size_t count, size_t size)
+int	ft_isalpha(int c)
 {
-	unsigned char	*tmp;
-	size_t			i;
-
-	tmp = malloc(size * count);
-	if (!tmp)
-		return (NULL);
-	i = 0;
-	while (i < size * count)
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
 	{
-		*(tmp + i) = 0;
-		i++;
+		return (c);
 	}
-	return (tmp);
+	return (0);
 }

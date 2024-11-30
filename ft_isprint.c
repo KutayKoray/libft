@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkoray <kkoray@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/16 16:19:58 by kkoray            #+#    #+#             */
-/*   Updated: 2024/10/19 12:10:34 by kkoray           ###   ########.fr       */
+/*   Created: 2024/10/10 16:47:26 by kkoray            #+#    #+#             */
+/*   Updated: 2024/10/19 12:10:42 by kkoray           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-void	*ft_calloc(size_t count, size_t size)
+int	ft_isprint(int c)
 {
-	unsigned char	*tmp;
-	size_t			i;
-
-	tmp = malloc(size * count);
-	if (!tmp)
-		return (NULL);
-	i = 0;
-	while (i < size * count)
+	if (c >= 32 && c <= 126)
 	{
-		*(tmp + i) = 0;
-		i++;
+		return (c);
 	}
-	return (tmp);
+	return (0);
 }
